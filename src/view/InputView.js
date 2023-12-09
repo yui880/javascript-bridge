@@ -16,14 +16,14 @@ const InputView = {
    * 사용자가 이동할 칸을 입력받는다.
    */
   async readMoving() {
-    return await Console.readLineAsync(`${MESSAGE.enterMoving}\n`);
+    return await Console.readLineAsync(`\n${MESSAGE.enterMoving}\n`);
   },
 
   /**
    * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
    */
   async readGameCommand() {
-    return await Console.readLineAsync(`${MESSAGE.enterGameCommand}\n`);
+    return await Console.readLineAsync(`\n${MESSAGE.enterGameCommand}\n`);
   },
 };
 
