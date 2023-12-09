@@ -8,6 +8,10 @@ class MovingLog {
   updateLog({ direction, canMove }) {
     this.#log.push({ direction, canMove });
   }
+
+  getPosition() {
+    return this.#log.length;
+  }
 }
 
 export default MovingLog;
