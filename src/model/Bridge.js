@@ -18,6 +18,10 @@ class Bridge {
   isAccessibleTile({ position, bridgeTile }) {
     return this.#accessibleBridge[position] === bridgeTile;
   }
+
+  getSize() {
+    return this.#accessibleBridge.length;
+  }
 }
 
 export default Bridge;

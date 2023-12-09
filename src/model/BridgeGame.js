@@ -50,6 +50,10 @@ class BridgeGame {
   isMovePossible() {
     return this.#movingState === true;
   }
+
+  isArrival() {
+    return this.#movingLog.getPosition() === this.#bridge.getSize();
+  }
 }
 
 export default BridgeGame;

@@ -10,8 +10,17 @@ class BridgeGameController {
     const bridge = new Bridge(bridgeSize);
     this.#bridgeGame = new BridgeGame(bridge);
 
-    const movingTile = await this.#getMoving();
-    this.#bridgeGame.move(movingTile);
+    await this.gameLoop();
+  }
+
+  async gameLoop() {
+    while (true) {
+      const movingTile = await this.#getMoving();
+      this.#bridgeGame.move(movingTile);
+
+      if (!this.#bridgeGame.isMovePossible()) break;
+      if (this.#bridgeGame.isArrival()) break;
+    }
   }
 
   async #getBridgeSize() {
