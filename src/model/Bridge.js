@@ -14,6 +14,10 @@ class Bridge {
       BridgeRandomNumberGenerator.generate,
     );
   }
+
+  isAccessibleTile({ position, bridgeTile }) {
+    return this.#accessibleBridge[position] === bridgeTile;
+  }
 }
 
 export default Bridge;
