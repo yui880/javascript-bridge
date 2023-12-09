@@ -1,5 +1,15 @@
+import BridgeGameController from './controller/BridgeGameController.js';
+
 class App {
-  play() {}
+  #bridgeGameController;
+
+  constructor(bridgeGameController = new BridgeGameController()) {
+    this.#bridgeGameController = bridgeGameController;
+  }
+
+  async play() {
+    await this.#bridgeGameController.play();
+  }
 }
 
-module.exports = App;
+export default App;
