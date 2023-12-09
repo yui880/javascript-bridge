@@ -11,8 +11,8 @@ const BridgeMapMaker = {
   },
 
   initMap(movingLog) {
-    this.bridgeMap = Array.from({ length: DIRECTION.length }, () =>
-      new Array(movingLog.length).fill(''),
+    this.bridgeMap = Array.from({ length: Object.keys(DIRECTION).length }, () =>
+      new Array(movingLog.length).fill(' '),
     );
   },
 
