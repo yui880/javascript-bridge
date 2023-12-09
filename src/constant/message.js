@@ -10,3 +10,7 @@ export const MESSAGE = Object.freeze({
   isSuccess: '게임 성공 여부',
   tryCount: '총 시도한 횟수',
 });
+
+export const ERROR = {
+  errorPrefix: '[ERROR]',
+};
