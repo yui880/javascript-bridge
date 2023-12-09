@@ -9,9 +9,15 @@ const Validator = {
     }
   },
 
-  checkValidSize(input) {
+  checkIsValidSize(input) {
     if (Number(input) < BRIDGE_SIZE.min || Number(input) > BRIDGE_SIZE.max) {
       throw new ValidationError(ERROR.invalidBridgeSize);
+    }
+  },
+
+  checkIsValidCommand(input, commandList) {
+    if (!commandList.includes(input)) {
+      throw new ValidationError(ERROR.invalidCommand(commandList));
     }
   },
 };

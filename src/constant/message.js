@@ -15,4 +15,8 @@ export const ERROR = {
   errorPrefix: '[ERROR]',
   isNotInteger: `입력된 값이 정수가 아닙니다. 다리의 길이는 ${BRIDGE_SIZE.min}~${BRIDGE_SIZE.max}사이의 정수만 입력 가능합니다.`,
   invalidBridgeSize: `입력된 값이  ${BRIDGE_SIZE.min}~${BRIDGE_SIZE.max}사이의 정수가 아닙니다. 다리의 길이는 해당 범위 안의 정수만 입력 가능합니다.`,
+  invalidCommand: (commandList) =>
+    `입력된 값이 ${commandList.join(
+      ', ',
+    )}사이의 값이 아닙니다. 해당 범위 안의 문자만 입력 가능합니다.`,
 };
