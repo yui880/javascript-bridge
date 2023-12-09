@@ -1,5 +1,7 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
 import Bridge from '../src/model/Bridge.js';
+import { BRIDGE_SIZE } from '../src/constant/bridge.js';
+import { ERROR } from '../src/constant/message.js';
 
 const mockRandoms = (numbers) => {
   MissionUtils.Random.pickNumberInRange = jest.fn();
@@ -35,6 +37,22 @@ describe('Bridge 클래스 테스트', () => {
 
         // then
         expect(result).toBe(expected);
+      },
+    );
+  });
+
+  describe('예외 테스트', () => {
+    test.each([['유나'], ['3a'], [3.14]])(
+      '다리의 길이가 정수가 아니면 예외가 발생한다.',
+      (input) => {
+        expect(() => new Bridge(input)).toThrow(ERROR.errorPrefix);
+      },
+    );
+
+    test.each([[BRIDGE_SIZE.min - 1], [BRIDGE_SIZE.max + 1]])(
+      `다리의 길이가 ${BRIDGE_SIZE.min}~${BRIDGE_SIZE.max} 사이의 값이 아니면 예외가 발생한다.`,
+      (input) => {
+        expect(() => new Bridge(input)).toThrow(ERROR.errorPrefix);
       },
     );
   });
