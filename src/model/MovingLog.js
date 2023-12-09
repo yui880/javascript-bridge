@@ -16,6 +16,10 @@ class MovingLog {
   getPosition() {
     return this.#log.length;
   }
+
+  getLog() {
+    return this.#log;
+  }
 }
 
 export default MovingLog;

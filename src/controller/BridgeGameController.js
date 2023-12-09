@@ -21,6 +21,7 @@ class BridgeGameController {
     while (true) {
       const movingTile = await this.#getMoving();
       this.#bridgeGame.move(movingTile);
+      OutputView.printMap(this.#bridgeGame.getMovingLog());
 
       if (!this.#bridgeGame.isMovePossible()) break;
       if (this.#bridgeGame.isArrival()) break;

@@ -54,6 +54,10 @@ class BridgeGame {
   isArrival() {
     return this.#movingLog.getPosition() === this.#bridge.getSize();
   }
+
+  getMovingLog() {
+    return this.#movingLog.getLog();
+  }
 }
 
 export default BridgeGame;
