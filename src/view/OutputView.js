@@ -34,6 +34,10 @@ const OutputView = {
     Console.print(`${MESSAGE.isSuccess}: ${LOG[isSuccess].result}`);
     Console.print(`${MESSAGE.tryCount}: ${tryCount}`);
   },
+
+  printError(message) {
+    Console.print(message);
+  },
 };
 
 export default OutputView;

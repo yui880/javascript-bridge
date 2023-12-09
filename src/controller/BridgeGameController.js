@@ -10,7 +10,7 @@ class BridgeGameController {
 
   async play() {
     OutputView.printStartMessage();
-    const bridge = await this.#getBridge();
+    const bridge = await this.handleException(() => this.#getBridge());
     this.#bridgeGame = new BridgeGame(bridge);
 
     await this.#gameLoop();
@@ -22,7 +22,7 @@ class BridgeGameController {
 
   async #gameLoop() {
     while (true) {
-      const movingTile = await this.#getMoving();
+      const movingTile = await this.handleException(() => this.#getMoving());
       this.#bridgeGame.move(movingTile);
       OutputView.printMap(this.#bridgeGame.getMovingLog());
 
@@ -32,7 +32,7 @@ class BridgeGameController {
   }
 
   async #decideRetry() {
-    const command = await this.#getGameCommand();
+    const command = await this.handleException(() => this.#getGameCommand());
 
     if (command === COMMAND.retry) {
       this.#bridgeGame.retry();
@@ -46,6 +46,16 @@ class BridgeGameController {
       isSuccess: this.#bridgeGame.getMovingState(),
       tryCount: this.#bridgeGame.getTryCount(),
     });
+  }
+
+  async handleException(callback) {
+    while (true) {
+      try {
+        return await callback();
+      } catch (error) {
+        OutputView.printError(error.message);
+      }
+    }
   }
 
   async #getBridge() {
