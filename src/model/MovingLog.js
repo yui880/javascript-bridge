@@ -9,6 +9,10 @@ class MovingLog {
     this.#log.push({ direction, canMove });
   }
 
+  resetLog() {
+    this.#log = [];
+  }
+
   getPosition() {
     return this.#log.length;
   }
