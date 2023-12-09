@@ -15,6 +15,11 @@ class BridgeGameController {
 
     await this.gameLoop();
     await this.decideRetry();
+    OutputView.printResult({
+      movingLog: this.#bridgeGame.getMovingLog(),
+      isSuccess: this.#bridgeGame.getMovingState(),
+      tryCount: this.#bridgeGame.getTryCount(),
+    });
   }
 
   async gameLoop() {

@@ -12,6 +12,12 @@ export const DIRECTION = Object.freeze({
 });
 
 export const LOG = Object.freeze({
-  true: 'O',
-  false: 'X',
+  true: {
+    format: 'O',
+    result: '성공',
+  },
+  false: {
+    format: 'X',
+    result: '실패',
+  },
 });

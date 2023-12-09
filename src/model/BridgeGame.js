@@ -58,6 +58,14 @@ class BridgeGame {
   getMovingLog() {
     return this.#movingLog.getLog();
   }
+
+  getMovingState() {
+    return this.#movingState;
+  }
+
+  getTryCount() {
+    return this.#tryCount;
+  }
 }
 
 export default BridgeGame;

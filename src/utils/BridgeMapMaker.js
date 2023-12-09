@@ -19,10 +19,10 @@ const BridgeMapMaker = {
   updateBridgeMap(movingLog) {
     movingLog.forEach(({ direction, canMove }, index) => {
       if (direction === DIRECTION.up.format) {
-        this.bridgeMap[DIRECTION.up.position][index] = LOG[canMove];
+        this.bridgeMap[DIRECTION.up.position][index] = LOG[canMove].format;
         return;
       }
-      this.bridgeMap[DIRECTION.down.position][index] = LOG[canMove];
+      this.bridgeMap[DIRECTION.down.position][index] = LOG[canMove].format;
     });
   },
 };
