@@ -1,10 +1,12 @@
 import BridgeMaker from '../BridgeMaker.js';
 import BridgeRandomNumberGenerator from '../BridgeRandomNumberGenerator.js';
+import Validator from '../validator/Validator.js';
 
 class Bridge {
   #accessibleBridge;
 
   constructor(bridgeSize) {
+    Validator.validateBridgeSize(bridgeSize);
     this.#makeBridge(bridgeSize);
   }
 

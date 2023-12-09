@@ -9,20 +9,15 @@ class BridgeGameController {
 
   async play() {
     OutputView.printStartMessage();
-    const bridgeSize = await this.#getBridgeSize();
-    const bridge = new Bridge(bridgeSize);
+    const bridge = await this.#getBridge();
     this.#bridgeGame = new BridgeGame(bridge);
 
-    await this.gameLoop();
-    await this.decideRetry();
-    OutputView.printResult({
-      movingLog: this.#bridgeGame.getMovingLog(),
-      isSuccess: this.#bridgeGame.getMovingState(),
-      tryCount: this.#bridgeGame.getTryCount(),
-    });
+    await this.#gameLoop();
+    await this.#decideRetry();
+    this.#printResult();
   }
 
-  async gameLoop() {
+  async #gameLoop() {
     while (true) {
       const movingTile = await this.#getMoving();
       this.#bridgeGame.move(movingTile);
@@ -33,7 +28,7 @@ class BridgeGameController {
     }
   }
 
-  async decideRetry() {
+  async #decideRetry() {
     const command = await this.#getGameCommand();
 
     if (command === COMMAND.retry) {
@@ -42,10 +37,18 @@ class BridgeGameController {
     }
   }
 
-  async #getBridgeSize() {
+  #printResult() {
+    OutputView.printResult({
+      movingLog: this.#bridgeGame.getMovingLog(),
+      isSuccess: this.#bridgeGame.getMovingState(),
+      tryCount: this.#bridgeGame.getTryCount(),
+    });
+  }
+
+  async #getBridge() {
     const bridgeSize = await InputView.readBridgeSize();
 
-    return Number(bridgeSize);
+    return new Bridge(Number(bridgeSize));
   }
 
   async #getMoving() {

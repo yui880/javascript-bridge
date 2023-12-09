@@ -3,6 +3,11 @@ import { ERROR } from '../constant/message.js';
 import { BRIDGE_SIZE } from '../constant/bridge.js';
 
 const Validator = {
+  validateBridgeSize(bridgeSize) {
+    this.checkIsInteger(bridgeSize);
+    this.checkIsValidSize(bridgeSize);
+  },
+
   checkIsInteger(input) {
     if (!Number.isInteger(input)) {
       throw new ValidationError(ERROR.isNotInteger);
