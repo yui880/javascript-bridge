@@ -61,6 +61,7 @@ class BridgeGameController {
 
   async #getGameCommand() {
     const command = await InputView.readGameCommand();
+    Validator.validateGameCommand(command);
 
     return command;
   }
