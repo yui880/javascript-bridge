@@ -1,11 +1,15 @@
 import ValidationError from './ValidationError.js';
 import { ERROR } from '../constant/message.js';
-import { BRIDGE_SIZE } from '../constant/bridge.js';
+import { BRIDGE_SIZE, DIRECTION_COMMAND } from '../constant/bridge.js';
 
 const Validator = {
   validateBridgeSize(bridgeSize) {
     this.checkIsInteger(bridgeSize);
     this.checkIsValidSize(bridgeSize);
+  },
+
+  validateMoving(moving) {
+    this.checkIsValidCommand(moving, DIRECTION_COMMAND);
   },
 
   checkIsInteger(input) {

@@ -16,6 +16,8 @@ export const DIRECTION = Object.freeze({
   },
 });
 
+export const DIRECTION_COMMAND = Object.values(DIRECTION).map(({ format }) => format);
+
 export const LOG = Object.freeze({
   true: {
     format: 'O',

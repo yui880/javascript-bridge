@@ -3,6 +3,7 @@ import Bridge from '../model/Bridge.js';
 import BridgeGame from '../model/BridgeGame.js';
 import { COMMAND } from '../constant/constant.js';
 import OutputView from '../view/OutputView.js';
+import Validator from '../validator/Validator.js';
 
 class BridgeGameController {
   #bridgeGame;
@@ -53,6 +54,7 @@ class BridgeGameController {
 
   async #getMoving() {
     const moving = await InputView.readMoving();
+    Validator.validateMoving(moving);
 
     return moving;
   }
