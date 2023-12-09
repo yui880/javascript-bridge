@@ -22,7 +22,7 @@ describe('MovingLog 클래스 테스트', () => {
 
         // then
         const result = movingLog.getLog();
-        expect(result).toEqual(expected);
+        expect(result).toStrictEqual(expected);
       },
     );
 
@@ -33,7 +33,7 @@ describe('MovingLog 클래스 테스트', () => {
       //then
       const result = movingLog.getLog();
       const expected = [];
-      expect(result).toEqual(expected);
+      expect(result).toStrictEqual(expected);
     });
   });
 });
