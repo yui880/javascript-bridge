@@ -1,4 +1,4 @@
-import { DIRECTION } from './bridge.js';
+import { BRIDGE_SIZE, DIRECTION } from './bridge.js';
 import { COMMAND } from './constant.js';
 
 export const MESSAGE = Object.freeze({
@@ -13,4 +13,5 @@ export const MESSAGE = Object.freeze({
 
 export const ERROR = {
   errorPrefix: '[ERROR]',
+  isNotInteger: `입력한 수가 정수가 아닙니다. 다리의 길이는 ${BRIDGE_SIZE.min}~${BRIDGE_SIZE.max}사이의 정수만 입력 가능합니다.`,
 };

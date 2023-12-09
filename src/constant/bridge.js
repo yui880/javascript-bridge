@@ -1,3 +1,8 @@
+export const BRIDGE_SIZE = Object.freeze({
+  min: 3,
+  max: 20,
+});
+
 export const DIRECTION = Object.freeze({
   up: {
     random: 1,
