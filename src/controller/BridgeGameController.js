@@ -14,7 +14,9 @@ class BridgeGameController {
     this.#bridgeGame = new BridgeGame(bridge);
 
     await this.#gameLoop();
-    await this.#decideRetry();
+    if (!this.#bridgeGame.getMovingState()) {
+      await this.#decideRetry();
+    }
     this.#printResult();
   }
 
