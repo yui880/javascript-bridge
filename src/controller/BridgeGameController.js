@@ -34,7 +34,7 @@ class BridgeGameController {
 
     if (command === COMMAND.retry) {
       this.#bridgeGame.retry();
-      return await this.gameLoop();
+      return await this.#gameLoop();
     }
   }
 

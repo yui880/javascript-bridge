@@ -12,7 +12,4 @@ class App {
   }
 }
 
-const app = new App();
-await app.play();
-
 export default App;
