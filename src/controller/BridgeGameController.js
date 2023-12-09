@@ -1,6 +1,7 @@
 import InputView from '../view/InputView.js';
 import Bridge from '../model/Bridge.js';
 import BridgeGame from '../model/BridgeGame.js';
+import { COMMAND } from '../constant/constant.js';
 
 class BridgeGameController {
   #bridgeGame;
@@ -11,6 +12,7 @@ class BridgeGameController {
     this.#bridgeGame = new BridgeGame(bridge);
 
     await this.gameLoop();
+    await this.decideRetry();
   }
 
   async gameLoop() {
@@ -20,6 +22,15 @@ class BridgeGameController {
 
       if (!this.#bridgeGame.isMovePossible()) break;
       if (this.#bridgeGame.isArrival()) break;
+    }
+  }
+
+  async decideRetry() {
+    const command = await this.#getGameCommand();
+
+    if (command === COMMAND.retry) {
+      this.#bridgeGame.retry();
+      return await this.gameLoop();
     }
   }
 
@@ -33,6 +44,12 @@ class BridgeGameController {
     const moving = await InputView.readMoving();
 
     return moving;
+  }
+
+  async #getGameCommand() {
+    const command = await InputView.readGameCommand();
+
+    return command;
   }
 }
 
