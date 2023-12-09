@@ -2,11 +2,13 @@ import InputView from '../view/InputView.js';
 import Bridge from '../model/Bridge.js';
 import BridgeGame from '../model/BridgeGame.js';
 import { COMMAND } from '../constant/constant.js';
+import OutputView from '../view/OutputView.js';
 
 class BridgeGameController {
   #bridgeGame;
 
   async play() {
+    OutputView.printStartMessage();
     const bridgeSize = await this.#getBridgeSize();
     const bridge = new Bridge(bridgeSize);
     this.#bridgeGame = new BridgeGame(bridge);
