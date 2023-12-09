@@ -27,7 +27,7 @@ module.exports = {
     rules: {
         'max-depth': ['error', 2],
         'max-params': ['error', 3],
-        'max-lines-per-function': ['error', { max: 15 }],
+        'max-lines-per-function': ['error', { max: 10 }],
         'import/extensions': ["error", "always", { "ignorePackages": true }],
         'class-methods-use-this': ["off"],
     },
